@@ -1,0 +1,747 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>The Wine</title>
+<link href="css/frozen.css" type="text/css">
+</head>
+<style>
+/* 
+    初始化样式
+*/
+@charset "utf-8";
+/*reset start*/
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+html,body,form,fieldset,p,div,h1,h2,h3,h4,h5,h6{-webkit-text-size-adjust:none}
+html{font-size:16px}
+body{font-family:"微软雅黑",arial,sans-serif; background:#e6e6e6;}
+header,footer,section,article,aside,nav,hgroup,address,figure,figcaption,menu,details{display:block;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;font-weight:normal;}
+html,body,fieldset,img,iframe,abbr{border:0;}
+i,cite,em,var,address,dfn{font-style:normal;}
+[hidefocus],summary{outline:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5,h6,small{font-size:100%;font-style: normal;font-weight: normal;}
+sup,sub{font-size:83%;}
+pre,code,kbd,samp{font-family:inherit;}
+q:before,q:after{content:none;}
+textarea{overflow:auto;resize:none;}
+label,summary{cursor:default;}
+a,button{cursor:pointer;}
+del,ins,u,s,a,a:hover{text-decoration:none;}
+body,textarea,input,button,select,keygen,legend{color:#333;outline:0;}
+body *{-webkit-tap-highlight-color:rgba(0,0,0,0);tap-highlight-color:rgba(0,0,0,0)}
+.clearfix:after{content:".";display:block;overflow:hidden;height:0;clear:both;visibility:hidden;}
+* html .clearfix{height:1%;}
+input,textarea,select{outline: none; -webkit-appearance:none;}
+.clearOver{overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+
+body {
+	background-color:#000;
+}
+h4 { 
+	display:block;
+	width:100%;
+	font-size:18px;
+	font-weight:bold;
+	text-align:center;
+	padding-top:28px !important;
+	padding-bottom:100px;
+}
+p {
+	text-indent:2em;
+	margin:0 auto;
+}
+b {
+	padding-left:20px;
+}
+#circle {
+	width:100%;
+	display:none;
+	position:absolute;
+	bottom:260px;
+	left:2px;
+}
+#scrollcircle {
+	width: 155px;
+    height: auto;
+    margin-left: 0px;
+    margin-bottom: 0px;
+	padding-bottom: 40px;
+    position: absolute;
+    left: 60px;
+    top: 191px;
+    z-index: 10000;
+    -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infini*/
+}
+#container {
+	position:absolute;	
+	top: 389px;
+    left: 108px;
+   /*top: 386px;
+    left: 115px;*/
+    z-index: 9999;
+	display:none;
+}
+.wine {
+	width:100%;
+	position:relative;
+	z-index: 999;
+	top:100%;
+	display:none;
+	background-size:320px;
+	background-image:url(img/back1.png);
+	background-repeat:no-repeat;
+	background-position:top left;
+	font-size:14px;
+	color:#fff;
+	overflow:scroll;
+	font-family: "新宋体", "微软雅黑";
+	font-weight:600;
+}
+.onePage {
+	top:0;
+	display:block;
+	background-image:url(img/background2.png);
+	background-size:320px;
+	background-repeat:no-repeat;
+	background-position:bottom left;	
+	padding-top:0px;
+	padding-bottom:0px;
+	padding-left:0px;
+}
+.onePage img {
+	width:25%;
+	height:auto;
+	float:right;
+	position:relative;
+	right:20px;
+}
+#winebattle {
+	position:absolute;
+	top:30px;
+	right:100%;
+	z-index:998;
+}
+.onePage em {
+	float:left;
+	width:20px;
+	color:#d4d1af;
+	font-family: "新宋体", "微软雅黑";
+	font-size:17px;
+	font-weight:bold;
+	writing-mode:tb-lr;
+	position:absolute;
+	bottom:170px;
+	left:200px;
+}
+#cover {
+	width:20px;
+	float:left;
+	position:absolute;
+	bottom:154px;
+	left:200px;
+}
+#logo {
+	width:25%;
+	height:auto;
+	float:left;
+	position:fixed;
+	left:20px;
+	top:30px;
+	z-index:9999;
+    -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infinite为循环播放; */
+    -webkit-animation:play 6s linear infinite;
+    -moz-animation:play 6s linear infinite;
+    animation:play 6s linear infinite;
+}
+#yingtao {
+	-webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infinite为循环播放; */
+    -webkit-animation:play 4s linear infinite;
+    -moz-animation:play 4s linear infinite;
+    animation:play 4s linear infinite;
+}
+#snowbg {
+	width: 259px;
+    height: auto;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    position: absolute !important;
+    left: 26px;
+    top: 154px;
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infinite为循环播放; */
+}
+#go {
+}
+@-webkit-keyframes play{
+     0%  {
+        transform:rotateY(0deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+    50% {
+        transform:rotateY(360deg);
+        /*
+        transform:rotateX(360deg);
+        transform:rotate(360deg);
+        transform:rotate(-360deg);
+        */
+    }
+	100%  {
+        transform:rotateY(360deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+}
+@-moz-keyframes play{
+     0%  {
+        transform:rotateY(0deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+    50% {
+        transform:rotateY(360deg);
+        /*
+        transform:rotateX(360deg);
+        transform:rotate(360deg);
+        transform:rotate(-360deg);
+        */
+    }
+	100%  {
+        transform:rotateY(360deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+}
+@keyframes play{
+    0%  {
+        transform:rotateY(0deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+    50% {
+        transform:rotateY(360deg);
+        /*
+        transform:rotateX(360deg);
+        transform:rotate(360deg);
+        transform:rotate(-360deg);
+        */
+    }
+	100%  {
+        transform:rotateY(360deg);
+        /*
+        transform:rotateX(0deg);
+        transform:rotate(0deg);
+        transform:rotate(0deg);
+        */
+    }
+}
+
+@-webkit-keyframes snowbg{
+     0%  {
+        transform:rotate(0deg);
+    }
+	100%  {
+        transform:rotate(360deg);
+    }
+}
+@-moz-keyframes snowbg{
+     0%  {
+        transform:rotate(0deg);
+    }
+	100%  {
+        transform:rotate(360deg);
+    }
+}
+@keyframes snowbg{
+     0%  {
+        transform:rotate(0deg);
+    }
+	100%  {
+        transform:rotate(360deg);
+    }
+}
+
+@-webkit-keyframes playsport{
+     0%  {
+        transform:rotate(0deg);
+    }
+	100%  {
+        transform:rotate(360deg);
+    }
+}
+@-moz-keyframes playsport{
+     0%  {
+        transform:rotate(0deg);
+    }
+	100%  {
+        transform:rotate(360deg);
+    }
+}
+@keyframes playsport{
+    0%  {
+        transform:rotate(0deg);
+    }
+	100%  {
+        transform:rotate(360deg);
+    }
+}
+
+p{
+	float:left;
+}
+p,span,li {
+	position:relative;
+	left:100%;
+	display:block;
+}
+.twoPage p {
+	color:#fff;	
+    font-size: 12px;
+    width: 224px;
+    left: 47px;
+    top: 72px;
+}
+.fourPage ul {
+    width: 100%;
+    padding-left: 0px;
+    padding-top: 56px;
+}
+.fourPage ul  li {
+	padding-left: 188px;
+}
+.fourPage ul li em{
+	padding-right:89px;
+	float:left;
+	position:fixed;
+	left:0px;
+	text-align:right;
+	width:96px;
+}
+.fivePage {
+	background-image:url(img/paper.png);
+	background-size:320px;
+    background-repeat: no-repeat;
+    background-position: -1px 110px;
+	overflow: hidden;
+}
+.fivePage span,p{color:#a57e28}
+.sixPage span,p{color:#a57e28}
+.sevenPage li{color:#a57e28}
+.sevenPage li em {float: left;width: 74px;}
+.sevenPage li span {
+	width:320px;
+	left:-44px;
+	text-align:center;
+	font-weight: 100;
+    font-size: 13px;}
+#important p {
+	left:0;
+}
+#important {
+	float:left;
+	position:relative;
+	left:100%;
+	display:block;
+	z-index:10001;
+}
+.sevenPage {
+	background-image:url(img/phone_chart.png);
+	background-size:320px;
+	background-repeat:no-repeat;
+	background-position: 7px 120px;
+}
+.sevenPage ul {
+	padding: 110px 0 0 0px;
+}
+.sevenPage ul li{
+	line-height:55px;
+}
+/*
+.twoPage {
+	top:100%;
+}
+.threePage {
+	top:200%;
+}
+.fourPage {
+	top:300%;
+}
+.fivePage {
+	top:400%;
+}
+.sixPage {
+	top:500%;
+}
+.sevenPage {
+	top:600%;
+}
+*/
+
+/*动画*/
+@keyframes scrollTop
+{
+from {top:100%;}
+to {top:0;}
+}
+
+@-moz-keyframes scrollTop /* Firefox */
+{
+from {top:100%;}
+to {top:0;}
+}
+
+@-webkit-keyframes scrollTop /* Safari 和 Chrome */
+{
+from {top:100%;}
+to {top:0;}
+}
+
+@-o-keyframes scrollTop /* Opera */
+{
+from {top:100%;}
+to {top:0;}
+}
+</style>
+<body>
+<!--
+	<div id="circle">
+    	<img id="scrollcircle" src="img/sport1.png" />
+    </div>
+ -->
+	<div id="container">
+ 		<canvas id="waterfall"></canvas>
+	</div>
+	<img id="logo" src="img/logo.png" />
+	<div class="wine onePage">
+    	<img id="winebattle" src="img/index2.png" />
+        <em>野樱桃李酒</em>
+        <img id="cover" src="img/cover.png" />
+    </div>
+    <div class="wine twoPage">
+    	<h4>野樱桃李的地理位置</h4>
+        <img id="snowbg" src="img/wood.png" />
+        <p>在我国新疆伊犁霍城中华福寿山脚下，分布着世界唯一幸存的世界仅有亚洲独有的古老树种——野樱桃李。樱桃李（当地俗称野酸梅），仅在新疆中华福寿山生长的野生樱桃李是世界上极为罕见的树种和珍贵的原料野生果林。仅生存在逆温带气候圈，海拔900—1600米的沟壑水边和多砾石的阴坡地</p>
+    </div>
+    <div class="wine threePage">
+    	<h4>野樱桃李</h4>
+    	<img id="yingtao" style="width: 108px;float: left;margin-left: 103px;margin-top: 15px;" src="img/yingtao1.png" />
+        <span style="background-color:rgba(205,234,239,0.1); width: 212px;left: 50px;margin-top: 115px;">是世界仅有亚洲独有的古老树种</span>
+        <span style="background-color:rgba(141,231,137,0.1); width: 212px;left: 50px;">仅生长在我国新疆伊犁霍城中华福寿山脚下</span>
+        <span style="background-color:rgba(204,154,153,0.1); width: 212px;left: 50px;">仅生存在逆温带气候圈，海拔900—1600米的沟壑水边和多砾石的阴坡地</span>
+    </div>
+    <div class="wine fourPage">
+    	<h4>产品简介</h4>
+        <img id="scrollcircle" style="width: 155px;height: auto;margin-left: 0px;margin-bottom: 0px;position: absolute;left: 60px;top: 191px;" src="img/index2.png" />
+    	<ul>
+        	<li style="background-color:rgba(205,234,239,0.1);"><em>品牌名称</em>	金蘭一品</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>原料品种</em>	野樱桃李、纯净水</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>产地</em> 新疆伊犁中华福寿山</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>类型</em> 蒸馏酒</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>年限</em> 10年陈酿</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>数量</em> 2瓶装</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>净含量</em> 500ml</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>生产许可证</em> QS 654015050092</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>生产标准</em>	GB 2757</li>
+        </ul>
+    </div>
+    <div class="wine fivePage">
+    	<h4>金蘭一品的传说</h4>
+        <div style="position:relative;width: 100%;height: 316px;margin-top: 7px;overflow: scroll;z-index:10000;">
+       		<p style="width: 253px;top: 40px;left: 36px;">新疆霍城县大西沟中华福寿山自古就是一处神秘幽静的道家清修所在，山上的大西沟庙历史悠久，可以追溯到元朝。“金蘭一品”野樱桃李酒正是以中华福寿山独有、天然无污染的野生樱桃李（当地俗称野酸梅）为原料精酿而成，不仅口感上佳，而且营养价值极高，具有强身健体之功效。
+传说早在公元1221年，道教宗师丘处机（长春真人）随成吉思汗西征，就曾途经阿力马里城（今伊犁霍城西北），还曾受到大西沟福寿山的道士邀请前去讲道。一日，成吉思汗设宴款待讲道归来的丘处机，直截了当地问：“您远道而来，有没有带来长生之药给我？”丘处机回答：“我只有养生之道而无长生之药。”成吉思汗一面赞赏丘处机回答得诚实，一面又问：“那何为养生之道？”丘处机说道：“养生之道重在‘内固精神，外修阴德’。内固精神就是不要四处征伐，外修阴德就是要去暴止杀。” “那么敢问神仙，现今金、蒙、南宋三强鼎立，不知谁能一统天下？”丘处机不慌不忙地说道：“统一天下者，必为敬天爱民之明君。”成吉思汗听后高兴地说：“神仙这番话正合朕意。”说完端起盛满玛瑙紫色浓浆的酒杯，豪爽地笑着说：“请神仙先满饮此杯，再向您问道不迟。这可是世间罕有，以我大西沟独有的野生樱桃李酿制的琼浆玉液。每饮此酒，朕都感到无比地神清气爽，想来也只有此酒才配神仙。”此时丘处机敏锐地意识到成吉思汗从谏如流，豪爽大度，很有可能是能完成天下统一伟业的开明君主，心中也为百姓即将有此明君而欣慰。看到杯中美酒紫光流转煞是好看，近闻又果香满溢，确是好酒。忙道：“谢大汗！前日讲道时对大西沟野樱桃李的神奇功效也有所耳闻。今日得见，方知耳听为虚，眼见为实，此酒确实对您养生大有裨益。以您今日远见卓识、强健体魄，想来一统天下之日不远矣！” 成吉思汗听后龙颜大悦，和丘处机大有相见恨晚之意，与他义结金兰。豪迈爽朗地笑着对丘处机说：“神仙的话千真万确啊！我的成功怎么来的？野酸梅酿造的！不久的将来，待到一统天下之时，我还要用这稀世珍酿樱桃李酒犒赏有功的将军，到那时，再和神仙一醉方休。”
+这虽然只是一个美好的传说，但随着成吉思汗的孙子忽必烈建立元朝统一天下，这珍品佳酿随着时间的推移在当地民间一直传承下来，这就是今日的“金蘭一品”野樱桃李酒。</p>
+		</div>
+        <img id="paperCover" style="position:relative;top: -354px;width: 320px;z-index:10001;" src="img/paperCover.png" />
+    </div>
+    <div class="wine sixPage">
+        <h4>产品追溯</h4>
+        <img style="width: 232px;height: auto;margin-left: 0px;margin-bottom: 0px;position: absolute;left: 36px;top: 180px;z-index: -1;" src="img/index1.png" />
+        <b>金蘭一品二维码追溯信息</b>
+        <span>品种名称：金蘭一品酒</span>
+        <span>生产经营者名称：伊犁大将军酒业有限公司</span>
+        <span>生产许可证：QS 654015050092</span>
+        <b>原料信息</b>
+        <span>作物种类：野樱桃李</span>
+        <span>类别：野生</span>
+        <span style="padding-bottom: 23px;">植物检疫证号：植产检第******号</span>
+        <div id="important" style="width:100%; height:209px;background-image:url(img/paper1.png);background-size:320px;background-repeat:no-repeat;background-position:top left;overflow: scroll;padding: 10px 0 0 0;position: relative;z-index: 10001;">
+            <b style="position: absolute;left:0px;">含量珍贵性</b>
+                    <p style="float: left;top: 23px;left: 30px;width: 263px;height: 164px;overflow: scroll;">樱桃李果实成熟时可溶固形物含量高达 13-17°，BX，总酸达 3.5 %，最高达 6.0%，其含量是当地野苹果的 4-5 倍，其酸味纯正， 无涩味，异味，尤其突出的是钾含量达 215 mg/100g，钙含量为 11.25mg/100g，硒含量达 0.125mg/100g，樱桃李果皮含有丰富、稳定的红色素，提取的果汁色泽深红诱人，其口感 十分独特。这种品性在果品中是十分难得的，而且产自自然环境，清洁无污染的沿天山河谷， 确定是最优异的珍品果汁，果酒加工原料。</p>
+        </div>
+	</div>
+    <div class="wine sevenPage">
+   		<h4 style="color:#fff">购买流程及方式</h4>
+        <ul>
+            <li><em>电话</em>13369823866</li>
+            <li><em>&nbsp;QQ</em>888888888</li>
+            <li><em>微信</em>xxxx</li>
+            <li><em>邮箱</em>xxxxx@xxxx.xx</li>
+            <li><span>地址：新疆伊犁州霍城县环城路11号</span></li>
+        </ul>
+    </div>
+<!--  
+	<input style="width:200px;height:50px;position:fixed;bottom:270px;left:215px;z-index:1000;" type="button" value="上滑" />
+    <input style="width:200px;height:50px;position:fixed;bottom:270px;left:-50px;z-index:1000;" type="button" value="下滑" />
+-->
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/frozen.js"></script>
+<script>
+setTimeout(function(){$("#cover").animate({bottom:"42px"},4000)},100);;
+$("#winebattle").animate({right:"20px"},3000);
+var haven = function() {
+	if($(".onePage").css("display")=="block"){
+		$("#container").css({"display":"none"});		
+		$("#winebattle").animate({right:"20px"},3000);
+		setTimeout(function(){$("#cover").animate({bottom:"42px"},4000)},100);;
+		$(".twoPage p").animate({left:"100%"},0);
+		$("#circle").css({"display":"none"});
+		$("#snowbg").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
+	}
+	if($(".twoPage").css("display")=="block"){
+		$("#container").css({"display":"none"});
+		$(".twoPage p").animate({left:"47px"},7000);
+		$("#cover").animate({bottom:"154px"},0);		
+		$("#winebattle").animate({right:"100%"},0);
+		$("#snowbg").css({"-webkit-animation":"snowbg 6s ease-in-out normal","-moz-animation":"snowbg 6s ease-in-out normal","animation":"snowbg 6s ease-in-out normal"});
+		for(var i=0;i<$(".threePage").find('span').length;i++){
+			$(".threePage span").eq(i).animate({left:"100%"},0);
+		}
+		setTimeout(function () {
+			if($(".onePage").css("display")!="block" && $(".sevenPage").css("display")!="block"){
+				$("#container").css({"display":"block"});
+			}
+		 }, 6500);
+	}
+	if($(".threePage").css("display")=="block"){
+		$("#container").css({"display":"block"});
+		$(".twoPage p").animate({left:"100%"},0);
+		for(var i=0;i<$(".threePage").find('span').length;i++){
+			$(".threePage span").eq(i).animate({left:"45px"},(i+1)*1000);
+		}
+		for(var i=0;i<$(".fourPage").find('li').length;i++){
+			$(".fourPage li").eq(i).animate({left:"100%"},0);
+		}
+		$("#scrollcircle").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
+		$("#snowbg").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
+	}
+	if($(".fourPage").css("display")=="block"){
+		$("#scrollcircle").css({"-webkit-animation":"playsport 3s linear normal","-moz-animation":"playsport 3s linear normal","animation":"playsport 3s linear normal"});
+		for(var i=0;i<$(".fourPage").find('li').length;i++){
+			$(".fourPage li").eq(i).animate({left:"0px"},(i+1)*1000);
+		}
+		for(var i=0;i<$(".threePage").find('span').length;i++){
+			$(".threePage span").eq(i).animate({left:"100%"},0);
+		}
+		$(".fivePage p").animate({left:"100%"},0);
+		$("#container").css({"display":"block","z-index":"10000"});	
+		$("#paperCover").animate({"top":"-352px"},0);
+	}
+	if($(".fivePage").css("display")=="block"){
+		$("#paperCover").css({"display":"block"});
+		$("#container").css({"display":"block","z-index":"10000"});	
+		$(".fivePage p").animate({left:"36px"},0);
+		$("#paperCover").animate({"top":"-52px"},3000);
+		setTimeout(function () {
+			$("#paperCover").css({"display":"none"});
+		},1500);
+		setTimeout(function () {
+			if($(".onePage").css("display")!="block" && $(".sevenPage").css("display")!="block" && $(".fivePage").css("display")=="block"){
+				$("#container").css({"z-index":"-1"});
+			}
+		 }, 0);
+		for(var i=0;i<$(".fourPage").find('li').length;i++){
+			$(".fourPage li").eq(i).animate({left:"100%"},0);
+		}
+		for(var i=0;i<$(".sixPage").find('span').length;i++){
+			$(".sixPage span").eq(i).animate({left:"100%"},0);
+		}
+		$("#important").animate({left:"100%"},0);
+		$("#scrollcircle").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
+	}
+	if($(".sixPage").css("display")=="block"){
+		$("#container").css({"display":"block","z-index":"10000"});
+		for(var i=0;i<$(".sixPage").find('span').length;i++){
+			$(".sixPage span").eq(i).animate({left:"49px"},(i+1)*1000);
+		}
+		$("#important").animate({left:"0"},($(".sixPage").find('span').length+1)*1000);
+		setTimeout(function () {
+			if($(".onePage").css("display")!="block" && $(".sevenPage").css("display")!="block" && $(".sixPage").css("display")=="block"){
+				$("#container").css({"z-index":"-1"});
+			}
+		 }, 0);
+		$(".fivePage p").animate({left:"100%"},0);
+		for(var i=0;i<$(".sevenPage").find('li').length;i++){
+			$(".sevenPage li").eq(i).animate({left:"100%"},0);
+		}
+		$("#paperCover").animate({"top":"-352px"},0);
+	}
+	if($(".sevenPage").css("display")=="block"){
+		for(var i=0;i<$(".sevenPage").find('li').length;i++){
+			$(".sevenPage li").eq(i).animate({left:"44px"},(i+1)*1000);
+		}
+		for(var i=0;i<$(".sixPage").find('span').length;i++){
+			$(".sixPage span").eq(i).animate({left:"100%"},0);
+		}
+		$("#important").animate({left:"100%"},0);
+		$("#container").css({"display":"none"});	
+	}
+	boolX=false;
+}
+/*
+$("input").eq(0).click(function(){
+	for(var i=0;i<6;i++){
+		if($(".wine").eq(i).css("display")=="block"){
+			$(".wine").eq(i+1).css({"display":"block"});
+			$(".wine").eq(i+1).animate({top:"0"});			
+			$(".wine").eq(i).animate({top:"-100%"});
+			$(".wine").eq(i).css({"display":"none"});
+			break;
+		}	
+	}
+	haven();
+})
+
+
+//下滑切换
+$("input").eq(1).click(function(){
+	
+	for(var i=1;i<7;i++){
+		if($(".wine").eq(i).css("display")=="block"){
+			$(".wine").eq(i-1).css({"display":"block"});
+			$(".wine").eq(i-1).animate({top:"0"});
+			$(".wine").eq(i).animate({top:"100%"});
+			$(".wine").eq(i).css({"display":"none"});
+			break;
+		}	
+	}
+	haven();
+})
+*/
+	//获取屏幕高度，初始化页面高度
+	var phoneHeight=document.documentElement.clientHeight;
+	var phoneWidth=document.documentElement.clientWidth;
+	$(".wine").css({"height":phoneHeight,"width":phoneWidth});
+	var gonum=0;
+	var boolX=false;
+	var up = "";
+	//滑动事件
+
+	//全局变量，触摸开始位置  
+	var startX = 0, startY = 0;  
+	  
+	//touchstart事件  
+	function touchSatrtFunc(evt) {   
+		try  
+		{  
+			//evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
+
+			var touch = evt.touches[0]; //获取第一个触点  
+			var x = Number(touch.pageX); //页面触点X坐标  
+			var y = Number(touch.pageY); //页面触点Y坐标  
+			//记录触点初始位置  
+			startX = x;  
+			startY = y;  
+		}  
+		catch (e) { 
+		}  
+	}  
+
+	//touchmove事件，这个事件无法获取坐标  
+	function touchMoveFunc(evt) {  
+		try  
+		{  
+			//evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
+			var touch = evt.touches[0]; //获取第一个触点  
+			var x = Number(touch.pageX); //页面触点X坐标  
+			var y = Number(touch.pageY); //页面触点Y坐标  
+
+			//判断滑动方向  
+			if(y - startY >40){
+				up = "false";					
+			}else if(startY-y >80){
+				up = "true";				
+			}
+		}  
+		catch (e) {
+		}
+	}
+	//touchend事件  
+	function touchEndFunc(evt) {  
+		try {  
+			evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等 
+			if(up=="true"){
+				if(gonum<6){
+					gonum=gonum+1;
+					$(".wine").eq(gonum).css({"display":"block"});
+					$(".wine").eq(gonum).animate({top:"0"});	
+					$(".wine").eq(gonum-1).animate({top:"-100%"});
+					$(".wine").eq(gonum-1).css({"display":"none"});						
+					haven();					
+					up="";					
+				}
+			}else if(up=="false"){
+				if(gonum>=1){
+					gonum=gonum-1;
+					$(".wine").eq(gonum).css({"display":"block"});
+					$(".wine").eq(gonum).animate({top:"0"});
+					$(".wine").eq(gonum+1).animate({top:"100%"});
+					$(".wine").eq(gonum+1).css({"display":"none"});	
+					haven();						
+					up="";							
+				}	
+			}
+		}  
+		catch (e) {
+		}  
+	}  
+
+	//绑定事件  
+	function bindEvent() {  
+		document.addEventListener('touchstart', touchSatrtFunc, false);  
+		document.addEventListener('touchmove', touchMoveFunc, false);  
+		document.addEventListener('touchend', touchEndFunc, false);  
+	}  
+
+	//判断是否支持触摸事件  
+	function isTouchDevice() { 
+		try {  
+			document.createEvent("TouchEvent");
+			bindEvent(); //绑定事件  
+		}  
+		catch (e) {  
+			alert("不支持TouchEvent事件！" + e.message);  
+		}  
+	} 
+	window.onload = isTouchDevice; 
+	
+</script>
+</html>
