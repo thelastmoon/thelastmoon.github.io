@@ -65,7 +65,23 @@ b {
 	left:2px;
 }
 #scrollcircle {
-	width: 155px;
+	width: 50px;
+    height: auto;
+    margin-left: 0px;
+    margin-bottom: 0px;
+	padding-bottom: 40px;
+    position: absolute;
+    left: 60px;
+    top: 191px;
+    z-index: 10000;
+    -webkit-transform:translate3d(0,0,0);
+    -moz-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    /* 设置动画，animation:动画名称 动画播放时长单位秒或微秒 动画播放的速度曲线linear为匀速 动画播放次数infini*/
+}
+#scrollcircle_one {
+
+	width: 50px;
     height: auto;
     margin-left: 0px;
     margin-bottom: 0px;
@@ -123,10 +139,30 @@ b {
 	right:20px;
 }
 #winebattle {
+	width: 48px;
 	position:absolute;
 	top:30px;
-	right:100%;
-	z-index:998;
+	right:50px;
+	z-index:1008;
+	-webkit-animation:snowbg 6s ease-in-out infinite;
+	-moz-animation:snowbg 6s ease-in-out infinite;
+	animation:snowbg 6s ease-in-out infinite;
+}
+#musicLogo {
+	width: 48px;
+	position:absolute;
+	top:30px;
+	right:50px;
+	cursor:pointer;
+	z-index:1009;
+}
+#musicPause {
+	width: 48px;
+	height:48px;
+	position:absolute;
+	top:30px;
+	right:50px;
+	z-index:1010;
 }
 .onePage em {
 	float:left;
@@ -137,14 +173,14 @@ b {
 	font-weight:bold;
 	writing-mode:tb-lr;
 	position:absolute;
-	bottom:170px;
-	left:200px;
+	left: 200px;
+    bottom: 138px;
 }
 #cover {
-	width:20px;
+	width:44px;
 	float:left;
 	position:absolute;
-	bottom:154px;
+	bottom:42px;
 	left:200px;
 }
 #logo {
@@ -328,19 +364,35 @@ p,span,li {
     left: 47px;
     top: 72px;
 }
+#timebg {
+    width: 217px;
+    height: 134px;
+    position: relative;
+    left: 48px;
+    top: 67px;
+    z-index: 10000;
+    display:block;
+	overflow:hidden;
+}
+.timebg {
+    width: 217px;
+    height: 134px;
+    position: relative;
+    display:block;
+}
 .fourPage ul {
     width: 100%;
     padding-left: 0px;
     padding-top: 56px;
 }
 .fourPage ul  li {
-	padding-left: 188px;
+	padding-left: 147px;
 }
 .fourPage ul li em{
-	padding-right:89px;
+	padding-right:19px;
 	float:left;
 	position:fixed;
-	left:0px;
+	left:32px;
 	text-align:right;
 	width:96px;
 }
@@ -351,7 +403,7 @@ p,span,li {
     background-position: -1px 110px;
 	overflow: hidden;
 }
-.fivePage span,p{color:#a57e28}
+.fivePage span,p{color:#a57e28; left:0px;}
 .sixPage span,p{color:#a57e28}
 .sevenPage li{color:#a57e28}
 .sevenPage li em {float: left;width: 74px;}
@@ -438,16 +490,28 @@ to {top:0;}
 	<div id="container">
  		<canvas id="waterfall"></canvas>
 	</div>
+	<img id="winebattle" src="img/musicBg.png" />
+	<img id="musicLogo" src="img/musicLogo.png" />
+	<audio id="bgMusic" src="img/bgmusic.mp3"  autoplay="autoplay" loop>
+	</audio>
 	<img id="logo" src="img/logo.png" />
 	<div class="wine onePage">
-    	<img id="winebattle" src="img/index2.png" />
-        <em>野樱桃李酒</em>
+        <em>我的成功怎么来的</em><em style="left:220px;bottom:80px;color:#e2df86;">野酸梅酿造的</em>
         <img id="cover" src="img/cover.png" />
     </div>
     <div class="wine twoPage">
     	<h4>野樱桃李的地理位置</h4>
         <img id="snowbg" src="img/wood.png" />
         <p>在我国新疆伊犁霍城中华福寿山脚下，分布着世界唯一幸存的世界仅有亚洲独有的古老树种——野樱桃李。樱桃李（当地俗称野酸梅），仅在新疆中华福寿山生长的野生樱桃李是世界上极为罕见的树种和珍贵的原料野生果林。仅生存在逆温带气候圈，海拔900—1600米的沟壑水边和多砾石的阴坡地</p>
+    </div>
+	 <div class="wine bgPage">
+    	<h4>野樱桃李的生存环境</h4>
+        <img id="snowbg" src="img/wood.png" />
+        <div id="timebg">
+            <img class="timebg" src="img/timeone.png" />
+            <img class="timebg" src="img/timetwo.png" />
+            <img class="timebg" src="img/timethree.png" />
+        </div>
     </div>
     <div class="wine threePage">
     	<h4>野樱桃李</h4>
@@ -459,22 +523,26 @@ to {top:0;}
     <div class="wine fourPage">
     	<h4>产品简介</h4>
         <img id="scrollcircle" style="width: 155px;height: auto;margin-left: 0px;margin-bottom: 0px;position: absolute;left: 60px;top: 191px;" src="img/index2.png" />
+        <img id="scrollcircle_one" style="width: 232px;height: auto;margin-left: 0px;margin-bottom: 0px;position: absolute;left: 36px;top: 180px;z-index: -1;" src="img/index1.png" />
     	<ul>
-        	<li style="background-color:rgba(205,234,239,0.1);"><em>品牌名称</em>	金蘭一品</li>
-            <li style="background-color:rgba(141,231,137,0.1);"><em>原料品种</em>	野樱桃李、纯净水</li>
-            <li style="background-color:rgba(205,234,239,0.1);"><em>产地</em> 新疆伊犁中华福寿山</li>
-            <li style="background-color:rgba(141,231,137,0.1);"><em>类型</em> 蒸馏酒</li>
-            <li style="background-color:rgba(205,234,239,0.1);"><em>年限</em> 10年陈酿</li>
-            <li style="background-color:rgba(141,231,137,0.1);"><em>数量</em> 2瓶装</li>
-            <li style="background-color:rgba(205,234,239,0.1);"><em>净含量</em> 500ml</li>
-            <li style="background-color:rgba(141,231,137,0.1);"><em>生产许可证</em> QS 654015050092</li>
-            <li style="background-color:rgba(205,234,239,0.1);"><em>生产标准</em>	GB 2757</li>
+        	<li style="background-color:rgba(205,234,239,0.1);"><em>品牌名称:</em>金蘭一品</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>原料品种:</em>野樱桃李、纯净水</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>产地:</em>新疆伊犁中华福寿山</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>类型:</em>蒸馏酒</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>年限:</em>10年陈酿</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>数量:</em>2瓶装</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>净含量:</em>500ml</li>
+            <li style="background-color:rgba(141,231,137,0.1);"><em>生产许可证:</em>QS 654015050092</li>
+            <li style="background-color:rgba(205,234,239,0.1);"><em>生产标准:</em>GB 2757</li>
         </ul>
+		<span style="left: 30px;top: 134px; color:#FFCC66;"><em style="padding-right: 144px;">880元/瓶</em>2980元/瓶</span>
     </div>
     <div class="wine fivePage">
-    	<h4>金蘭一品的传说</h4>
-        <div style="position:relative;width: 100%;height: 316px;margin-top: 7px;overflow: scroll;z-index:10000;">
-       		<p style="width: 253px;top: 40px;left: 36px;">新疆霍城县大西沟中华福寿山自古就是一处神秘幽静的道家清修所在，山上的大西沟庙历史悠久，可以追溯到元朝。“金蘭一品”野樱桃李酒正是以中华福寿山独有、天然无污染的野生樱桃李（当地俗称野酸梅）为原料精酿而成，不仅口感上佳，而且营养价值极高，具有强身健体之功效。
+    	<h4>传说</h4>
+        <div id="story" style="position:relative;width: 100%;height: 316px;margin-top: 7px;overflow: scroll;z-index:10000;">
+       		<p style="width: 253px;top: 40px;left: 36px;"><span>金蘭一品的传说</span>
+			<em>——我的成功怎么来的？野酸梅酿造的！</em><br />
+			新疆霍城县大西沟中华福寿山自古就是一处神秘幽静的道家清修所在，山上的大西沟庙历史悠久，可以追溯到元朝。“金蘭一品”野樱桃李酒正是以中华福寿山独有、天然无污染的野生樱桃李（当地俗称野酸梅）为原料精酿而成，不仅口感上佳，而且营养价值极高，具有强身健体之功效。
 传说早在公元1221年，道教宗师丘处机（长春真人）随成吉思汗西征，就曾途经阿力马里城（今伊犁霍城西北），还曾受到大西沟福寿山的道士邀请前去讲道。一日，成吉思汗设宴款待讲道归来的丘处机，直截了当地问：“您远道而来，有没有带来长生之药给我？”丘处机回答：“我只有养生之道而无长生之药。”成吉思汗一面赞赏丘处机回答得诚实，一面又问：“那何为养生之道？”丘处机说道：“养生之道重在‘内固精神，外修阴德’。内固精神就是不要四处征伐，外修阴德就是要去暴止杀。” “那么敢问神仙，现今金、蒙、南宋三强鼎立，不知谁能一统天下？”丘处机不慌不忙地说道：“统一天下者，必为敬天爱民之明君。”成吉思汗听后高兴地说：“神仙这番话正合朕意。”说完端起盛满玛瑙紫色浓浆的酒杯，豪爽地笑着说：“请神仙先满饮此杯，再向您问道不迟。这可是世间罕有，以我大西沟独有的野生樱桃李酿制的琼浆玉液。每饮此酒，朕都感到无比地神清气爽，想来也只有此酒才配神仙。”此时丘处机敏锐地意识到成吉思汗从谏如流，豪爽大度，很有可能是能完成天下统一伟业的开明君主，心中也为百姓即将有此明君而欣慰。看到杯中美酒紫光流转煞是好看，近闻又果香满溢，确是好酒。忙道：“谢大汗！前日讲道时对大西沟野樱桃李的神奇功效也有所耳闻。今日得见，方知耳听为虚，眼见为实，此酒确实对您养生大有裨益。以您今日远见卓识、强健体魄，想来一统天下之日不远矣！” 成吉思汗听后龙颜大悦，和丘处机大有相见恨晚之意，与他义结金兰。豪迈爽朗地笑着对丘处机说：“神仙的话千真万确啊！我的成功怎么来的？野酸梅酿造的！不久的将来，待到一统天下之时，我还要用这稀世珍酿樱桃李酒犒赏有功的将军，到那时，再和神仙一醉方休。”
 这虽然只是一个美好的传说，但随着成吉思汗的孙子忽必烈建立元朝统一天下，这珍品佳酿随着时间的推移在当地民间一直传承下来，这就是今日的“金蘭一品”野樱桃李酒。</p>
 		</div>
@@ -482,7 +550,6 @@ to {top:0;}
     </div>
     <div class="wine sixPage">
         <h4>产品追溯</h4>
-        <img style="width: 232px;height: auto;margin-left: 0px;margin-bottom: 0px;position: absolute;left: 36px;top: 180px;z-index: -1;" src="img/index1.png" />
         <b>金蘭一品二维码追溯信息</b>
         <span>品种名称：金蘭一品酒</span>
         <span>生产经营者名称：伊犁大将军酒业有限公司</span>
@@ -512,16 +579,48 @@ to {top:0;}
 -->
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/index.js"></script>
+<!-- 
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="js/jquery-1.8.3/jquery.min.js"></script>
+<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" ></script>
+-->
 <script src="js/frozen.js"></script>
+<script src="js/index.js"></script>
 <script>
-setTimeout(function(){$("#cover").animate({bottom:"42px"},4000)},100);;
+ var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
+ var nScrollTop = 0; 
+/*$("#musicLogo").tap(function (){
+	if($("#bgMusic").attr("src")){
+		$("#bgMusic").attr({"src":""});
+	}else {
+		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
+	}
+});
+
+$("#musicLogo").on("tap",function(){
+    if($("#bgMusic").attr("src")){
+		$("#bgMusic").attr({"src":""});
+	}else {
+		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
+	}
+  });
+
+$(document).on("pageinit","body",function(){
+  $("#musicLogo").on("tap",function(){
+    	alert("123");
+  });                       
+});
+*/
+
+setTimeout(function(){$("#cover").animate({"width":"0px"},4000)},100);;
 $("#winebattle").animate({right:"20px"},3000);
+$("#musicLogo").animate({right:"20px"},3000);
 var haven = function() {
 	if($(".onePage").css("display")=="block"){
 		$("#container").css({"display":"none"});		
 		$("#winebattle").animate({right:"20px"},3000);
-		setTimeout(function(){$("#cover").animate({bottom:"42px"},4000)},100);;
+		$("#musicLogo").animate({right:"20px"},3000);
+		setTimeout(function(){$("#cover").animate({"width":"0px"},4000)},100);;
 		$(".twoPage p").animate({left:"100%"},0);
 		$("#circle").css({"display":"none"});
 		$("#snowbg").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
@@ -529,21 +628,36 @@ var haven = function() {
 	if($(".twoPage").css("display")=="block"){
 		$("#container").css({"display":"none"});
 		$(".twoPage p").animate({left:"47px"},7000);
-		$("#cover").animate({bottom:"154px"},0);		
-		$("#winebattle").animate({right:"100%"},0);
+		$("#cover").animate({"width":"44px"},0);
 		$("#snowbg").css({"-webkit-animation":"snowbg 6s ease-in-out normal","-moz-animation":"snowbg 6s ease-in-out normal","animation":"snowbg 6s ease-in-out normal"});
-		for(var i=0;i<$(".threePage").find('span').length;i++){
-			$(".threePage span").eq(i).animate({left:"100%"},0);
-		}
+		
 		setTimeout(function () {
 			if($(".onePage").css("display")!="block" && $(".sevenPage").css("display")!="block"){
 				$("#container").css({"display":"block"});
 			}
 		 }, 6500);
 	}
-	if($(".threePage").css("display")=="block"){
-		$("#container").css({"display":"block"});
+	
+	if($(".bgPage").css("display")=="block"){
+		var bgindex=0;
 		$(".twoPage p").animate({left:"100%"},0);
+		$("#container").css({"display":"block"});
+		setInterval(function(){
+				if($(".timebg").css("top")=="0px"){
+					$(".timebg").animate({"top":"-134px"},2000);
+				}else if($(".timebg").css("top")=="-134px"){
+					$(".timebg").animate({"top":"-268px"},2000);
+				}else if($(".timebg").css("top")=="-268px"){
+					$(".timebg").animate({"top":"0px"},1000);
+				}
+		}, 2000)
+		for(var i=0;i<$(".threePage").find('span').length;i++){
+			$(".threePage span").eq(i).animate({left:"100%"},0);
+		}		
+	}
+	
+	if($(".threePage").css("display")=="block"){
+		$("#container").css({"display":"block"});		
 		for(var i=0;i<$(".threePage").find('span').length;i++){
 			$(".threePage span").eq(i).animate({left:"45px"},(i+1)*1000);
 		}
@@ -551,10 +665,14 @@ var haven = function() {
 			$(".fourPage li").eq(i).animate({left:"100%"},0);
 		}
 		$("#scrollcircle").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
+		$("#scrollcircle_one").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
 		$("#snowbg").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
 	}
 	if($(".fourPage").css("display")=="block"){
 		$("#scrollcircle").css({"-webkit-animation":"playsport 3s linear normal","-moz-animation":"playsport 3s linear normal","animation":"playsport 3s linear normal"});
+		$("#scrollcircle_one").css({"-webkit-animation":"playsport 3s linear normal","-moz-animation":"playsport 3s linear normal","animation":"playsport 3s linear normal"});
+		$("#scrollcircle").css({"width":"80px","left":"11px","top":"372px"});
+		$("#scrollcircle_one").css({"width":"128px","left":"183px","top":"410px"});
 		for(var i=0;i<$(".fourPage").find('li').length;i++){
 			$(".fourPage li").eq(i).animate({left:"0px"},(i+1)*1000);
 		}
@@ -586,6 +704,7 @@ var haven = function() {
 		}
 		$("#important").animate({left:"100%"},0);
 		$("#scrollcircle").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
+		$("#scrollcircle_one").css({"-webkit-animation":"none","-moz-animation":"none","animation":"none"});
 	}
 	if($(".sixPage").css("display")=="block"){
 		$("#container").css({"display":"block","z-index":"10000"});
@@ -616,36 +735,7 @@ var haven = function() {
 	}
 	boolX=false;
 }
-/*
-$("input").eq(0).click(function(){
-	for(var i=0;i<6;i++){
-		if($(".wine").eq(i).css("display")=="block"){
-			$(".wine").eq(i+1).css({"display":"block"});
-			$(".wine").eq(i+1).animate({top:"0"});			
-			$(".wine").eq(i).animate({top:"-100%"});
-			$(".wine").eq(i).css({"display":"none"});
-			break;
-		}	
-	}
-	haven();
-})
 
-
-//下滑切换
-$("input").eq(1).click(function(){
-	
-	for(var i=1;i<7;i++){
-		if($(".wine").eq(i).css("display")=="block"){
-			$(".wine").eq(i-1).css({"display":"block"});
-			$(".wine").eq(i-1).animate({top:"0"});
-			$(".wine").eq(i).animate({top:"100%"});
-			$(".wine").eq(i).css({"display":"none"});
-			break;
-		}	
-	}
-	haven();
-})
-*/
 	//获取屏幕高度，初始化页面高度
 	var phoneHeight=document.documentElement.clientHeight;
 	var phoneWidth=document.documentElement.clientWidth;
@@ -685,10 +775,37 @@ $("input").eq(1).click(function(){
 			var y = Number(touch.pageY); //页面触点Y坐标  
 
 			//判断滑动方向  
-			if(y - startY >40){
-				up = "false";					
-			}else if(startY-y >80){
-				up = "true";				
+			if($(".fivePage").css("display")=="block"){
+	//		$(document).ready(function (){
+		//	   var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
+		//	   var nScrollTop = 0;   //滚动到的当前位置
+/*		   var nDivHight = $("#story").height();
+				 nScrollHight = $("#story").scrollHeight;
+				 nScrollTop = $("#story").scrollTop;
+  //   });
+				 $("#story").scroll(function(){
+			　　　　　var paddingBottom = parseInt( $("#story").css('padding-bottom') ),paddingTop = parseInt( $("#story").css('padding-top') );
+					 if(nScrollTop+ nDivHight >= nScrollHight){
+						if(y - startY >40){
+							up = "false";					
+						}else if(startY-y >80){
+							up = "true";				
+						}
+					 }
+				 });
+*/
+				if(y - startY >60){
+					up = "false";					
+				}else if(startY-y >90){
+					up = "true";				
+				}
+			}else {
+			
+				if(y - startY >40){
+					up = "false";					
+				}else if(startY-y >80){
+					up = "true";				
+				}
 			}
 		}  
 		catch (e) {
@@ -699,7 +816,7 @@ $("input").eq(1).click(function(){
 		try {  
 			evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等 
 			if(up=="true"){
-				if(gonum<6){
+				if(gonum<7){
 					gonum=gonum+1;
 					$(".wine").eq(gonum).css({"display":"block"});
 					$(".wine").eq(gonum).animate({top:"0"});	
