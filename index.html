@@ -2,7 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="apple-mobile-web-app-capable" content="no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="address=no" />
+<meta name="full-screen" content="yes">
+<meta name="browsermode" content="application">
+<meta name="x5-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="x5-page-mode" content="app">
 <title>The Wine</title>
 <link href="css/frozen.css" type="text/css">
 </head>
@@ -481,7 +491,7 @@ from {top:100%;}
 to {top:0;}
 }
 </style>
-<body>
+<body data-role="page">
 <!--
 	<div id="circle">
     	<img id="scrollcircle" src="img/sport1.png" />
@@ -490,10 +500,6 @@ to {top:0;}
 	<div id="container">
  		<canvas id="waterfall"></canvas>
 	</div>
-	<img id="winebattle" src="img/musicBg.png" />
-	<img id="musicLogo" src="img/musicLogo.png" />
-	<audio id="bgMusic" src="img/bgmusic.mp3"  autoplay="autoplay" loop>
-	</audio>
 	<img id="logo" src="img/logo.png" />
 	<div class="wine onePage">
         <em>我的成功怎么来的</em><em style="left:220px;bottom:80px;color:#e2df86;">野酸梅酿造的</em>
@@ -573,29 +579,47 @@ to {top:0;}
             <li><span>地址：新疆伊犁州霍城县环城路11号</span></li>
         </ul>
     </div>
+    <div data-role="content">
+		<img id="winebattle" src="img/musicBg.png" />
+		<img id="musicLogo" src="img/musicLogo.png" />
+	</div>
+	<audio id="bgMusic" src="img/bgmusic.mp3" autoplay="autoplay" loop>
+	</audio>
+	
 <!--  
 	<input style="width:200px;height:50px;position:fixed;bottom:270px;left:215px;z-index:1000;" type="button" value="上滑" />
     <input style="width:200px;height:50px;position:fixed;bottom:270px;left:-50px;z-index:1000;" type="button" value="下滑" />
 -->
 </body>
-<script src="js/jquery-3.2.1.min.js"></script>
-<!-- 
+<script src="js/jquery-3.2.1.min.js"></script><!-- 
 <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="js/jquery-1.8.3/jquery.min.js"></script>
 <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" ></script>
+<script src="js/lib/zeptojs/zepto.min.js"></script>
 <script src="js/frozen.js"></script>
 -->
 <script src="js/index.js"></script>
 <script>
  var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
  var nScrollTop = 0; 
-/*$("#musicLogo").tap(function (){
+ /*
+ $(document).on("pageinit","#musicLogo",function(){
+	  $("img").on("click",function(){
+		  if($("#bgMusic").attr("src")){
+		     $("#bgMusic").attr({"src":""});
+		  }else {
+		   	 $("#bgMusic").attr({"src":"img/bgmusic.mp3"});
+		  }
+	  });                       
+ });
+ document.getElementById("musicLogo").onclick = function (){
+alert("123");
 	if($("#bgMusic").attr("src")){
 		$("#bgMusic").attr({"src":""});
 	}else {
 		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
 	}
-});
+};
 
 $("#musicLogo").on("tap",function(){
     if($("#bgMusic").attr("src")){
