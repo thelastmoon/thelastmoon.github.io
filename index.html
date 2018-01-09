@@ -585,12 +585,65 @@ to {top:0;}
 	</div>
 	<audio id="bgMusic" src="img/bgmusic.mp3" autoplay="autoplay" loop>
 	</audio>
+<<<<<<< HEAD
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
+=======
+	
+<!--  
+	<input style="width:200px;height:50px;position:fixed;bottom:270px;left:215px;z-index:1000;" type="button" value="上滑" />
+    <input style="width:200px;height:50px;position:fixed;bottom:270px;left:-50px;z-index:1000;" type="button" value="下滑" />
+-->
+</body>
+<script src="js/jquery-3.2.1.min.js"></script><!-- 
+<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="js/jquery-1.8.3/jquery.min.js"></script>
+<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" ></script>
+<script src="js/lib/zeptojs/zepto.min.js"></script>
+<script src="js/frozen.js"></script>
+-->
+>>>>>>> origin/master
 <script src="js/index.js"></script>
 <script>
  var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
  var nScrollTop = 0; 
+<<<<<<< HEAD
+=======
+ /*
+ $(document).on("pageinit","#musicLogo",function(){
+	  $("img").on("click",function(){
+		  if($("#bgMusic").attr("src")){
+		     $("#bgMusic").attr({"src":""});
+		  }else {
+		   	 $("#bgMusic").attr({"src":"img/bgmusic.mp3"});
+		  }
+	  });                       
+ });
+ document.getElementById("musicLogo").onclick = function (){
+alert("123");
+	if($("#bgMusic").attr("src")){
+		$("#bgMusic").attr({"src":""});
+	}else {
+		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
+	}
+};
+
+$("#musicLogo").on("tap",function(){
+    if($("#bgMusic").attr("src")){
+		$("#bgMusic").attr({"src":""});
+	}else {
+		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
+	}
+  });
+
+$(document).on("pageinit","body",function(){
+  $("#musicLogo").on("tap",function(){
+    	alert("123");
+  });                       
+});
+*/
+
+>>>>>>> origin/master
 setTimeout(function(){$("#cover").animate({"width":"0px"},4000)},100);;
 $("#winebattle").animate({right:"20px"},3000);
 $("#musicLogo").animate({right:"20px"},3000);
