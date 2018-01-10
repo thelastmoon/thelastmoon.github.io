@@ -121,7 +121,7 @@ b {
 	top:100%;
 	display:none;
 	background-size:320px;
-	background-image:url(img/back1.png);
+	background-image:url(img/back1.gif);
 	background-repeat:no-repeat;
 	background-position:top left;
 	font-size:14px;
@@ -133,7 +133,7 @@ b {
 .onePage {
 	top:0;
 	display:block;
-	background-image:url(img/background2.png);
+	background-image:url(img/background2.gif);
 	background-size:320px;
 	background-repeat:no-repeat;
 	background-position:bottom left;	
@@ -445,26 +445,6 @@ p,span,li {
 .sevenPage ul li{
 	line-height:55px;
 }
-/*
-.twoPage {
-	top:100%;
-}
-.threePage {
-	top:200%;
-}
-.fourPage {
-	top:300%;
-}
-.fivePage {
-	top:400%;
-}
-.sixPage {
-	top:500%;
-}
-.sevenPage {
-	top:600%;
-}
-*/
 
 /*动画*/
 @keyframes scrollTop
@@ -514,9 +494,9 @@ to {top:0;}
     	<h4>野樱桃李的生存环境</h4>
         <img id="snowbg" src="img/wood.png" />
         <div id="timebg">
-            <img class="timebg" src="img/timeone.png" />
-            <img class="timebg" src="img/timetwo.png" />
-            <img class="timebg" src="img/timethree.png" />
+            <img class="timebg" src="img/timeone.gif" />
+            <img class="timebg" src="img/timetwo.gif" />
+            <img class="timebg" src="img/timethree.gif" />
         </div>
     </div>
     <div class="wine threePage">
@@ -585,65 +565,13 @@ to {top:0;}
 	</div>
 	<audio id="bgMusic" src="img/bgmusic.mp3" autoplay="autoplay" loop>
 	</audio>
-<<<<<<< HEAD
 </body>
 <script src="js/jquery-3.2.1.min.js"></script>
-=======
-	
-<!--  
-	<input style="width:200px;height:50px;position:fixed;bottom:270px;left:215px;z-index:1000;" type="button" value="上滑" />
-    <input style="width:200px;height:50px;position:fixed;bottom:270px;left:-50px;z-index:1000;" type="button" value="下滑" />
--->
-</body>
-<script src="js/jquery-3.2.1.min.js"></script><!-- 
-<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
-<script src="js/jquery-1.8.3/jquery.min.js"></script>
-<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" ></script>
-<script src="js/lib/zeptojs/zepto.min.js"></script>
-<script src="js/frozen.js"></script>
--->
->>>>>>> origin/master
 <script src="js/index.js"></script>
 <script>
  var nScrollHight = 0; //滚动距离总长(注意不是滚动条的长度)
  var nScrollTop = 0; 
-<<<<<<< HEAD
-=======
- /*
- $(document).on("pageinit","#musicLogo",function(){
-	  $("img").on("click",function(){
-		  if($("#bgMusic").attr("src")){
-		     $("#bgMusic").attr({"src":""});
-		  }else {
-		   	 $("#bgMusic").attr({"src":"img/bgmusic.mp3"});
-		  }
-	  });                       
- });
- document.getElementById("musicLogo").onclick = function (){
-alert("123");
-	if($("#bgMusic").attr("src")){
-		$("#bgMusic").attr({"src":""});
-	}else {
-		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
-	}
-};
 
-$("#musicLogo").on("tap",function(){
-    if($("#bgMusic").attr("src")){
-		$("#bgMusic").attr({"src":""});
-	}else {
-		$("#bgMusic").attr({"src":"img/bgmusic.mp3"});
-	}
-  });
-
-$(document).on("pageinit","body",function(){
-  $("#musicLogo").on("tap",function(){
-    	alert("123");
-  });                       
-});
-*/
-
->>>>>>> origin/master
 setTimeout(function(){$("#cover").animate({"width":"0px"},4000)},100);;
 $("#winebattle").animate({right:"20px"},3000);
 $("#musicLogo").animate({right:"20px"},3000);
@@ -661,13 +589,12 @@ var haven = function() {
 		$("#container").css({"display":"none"});
 		$(".twoPage p").animate({left:"47px"},7000);
 		$("#cover").animate({"width":"44px"},0);
-		$("#snowbg").css({"-webkit-animation":"snowbg 6s ease-in-out normal","-moz-animation":"snowbg 6s ease-in-out normal","animation":"snowbg 6s ease-in-out normal"});
-		
+		$("#snowbg").css({"-webkit-animation":"snowbg 6s ease-in-out normal","-moz-animation":"snowbg 6s ease-in-out normal","animation":"snowbg 6s ease-in-out normal"});		
 		setTimeout(function () {
 			if($(".onePage").css("display")!="block" && $(".sevenPage").css("display")!="block"){
 				$("#container").css({"display":"block"});
 			}
-		 }, 6500);
+		 },6500);
 	}
 	
 	if($(".bgPage").css("display")=="block"){
@@ -675,14 +602,14 @@ var haven = function() {
 		$(".twoPage p").animate({left:"100%"},0);
 		$("#container").css({"display":"block"});
 		setInterval(function(){
-				if($(".timebg").css("top")=="0px"){
-					$(".timebg").animate({"top":"-134px"},2000);
+				if($(".timebg").css("top")=="-268px"){
+					$(".timebg").animate({"top":"0px"},2000);
 				}else if($(".timebg").css("top")=="-134px"){
 					$(".timebg").animate({"top":"-268px"},2000);
-				}else if($(".timebg").css("top")=="-268px"){
-					$(".timebg").animate({"top":"0px"},1000);
+				}else if($(".timebg").css("top")=="0px"){
+					$(".timebg").animate({"top":"-134px"},1000);
 				}
-		}, 2000)
+		}, 3000)
 		for(var i=0;i<$(".threePage").find('span').length;i++){
 			$(".threePage span").eq(i).animate({left:"100%"},0);
 		}		
@@ -789,7 +716,14 @@ var haven = function() {
 			var touch = evt.touches[0]; //获取第一个触点  
 			var x = Number(touch.pageX); //页面触点X坐标  
 			var y = Number(touch.pageY); //页面触点Y坐标  
-			//记录触点初始位置  
+			//记录触点初始位置 
+			if(252<x && x<297 && 29<y && y<75){
+				 if(document.getElementById("bgMusic").paused){
+					 document.getElementById("bgMusic").play();
+				 }else {
+					 document.getElementById("bgMusic").pause();
+				 }
+			}
 			startX = x;  
 			startY = y;  
 		}  
@@ -804,19 +738,21 @@ var haven = function() {
 			//evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等  
 			var touch = evt.touches[0]; //获取第一个触点  
 			var x = Number(touch.pageX); //页面触点X坐标  
-			var y = Number(touch.pageY); //页面触点Y坐标  
+			var y = Number(touch.pageY); //页面触点Y坐标 
 
 			//判断滑动方向  
 			if($(".fivePage").css("display")=="block"){
-				if(y - startY >60){
-					up = "false";					
-				}else if(startY-y >90){
-					up = "true";				
+				if(startX>50 && startX<270 && startY>175 && startY<460){}else{
+					if(y - startY >40){
+						up = "false";					
+					}else if(startY-y >60){
+						up = "true";				
+					}
 				}
 			}else {			
 				if(y - startY >40){
 					up = "false";					
-				}else if(startY-y >80){
+				}else if(startY-y >60){
 					up = "true";				
 				}
 			}
@@ -827,7 +763,7 @@ var haven = function() {
 	//touchend事件  
 	function touchEndFunc(evt) {  
 		try {  
-			evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等 
+			//evt.preventDefault(); //阻止触摸时浏览器的缩放、滚动条滚动等 
 			if(up=="true"){
 				if(gonum<7){
 					gonum=gonum+1;
@@ -872,5 +808,7 @@ var haven = function() {
 		}  
 	} 
 	window.onload = isTouchDevice;	
+	
+	
 </script>
 </html>
