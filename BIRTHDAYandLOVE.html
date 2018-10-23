@@ -18,7 +18,7 @@ html,body{
 
 </head>
 <body>
-<audio style="visibility: hidden;" volume="90" hidden=true autoplay=true loop="loop" quality="high">
+<audio style="visibility: hidden;" volume="90" hidden=true autoplay="autoplay" loop quality="high">
   <source src="https://thelastmoon.github.io/careyou.mp3" type="audio/mpeg"/>
 </audio>
 <canvas style="position:relative;z-index:999999;" id="canvas" width="1600" height="807"></canvas>
@@ -155,7 +155,7 @@ function splode(x,y,z){
 	}
 	d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
 	pow.volume=1.5/(1+d/10);
-	//pow.play();
+	pow.play();
 }
 
 function doLogic(){
