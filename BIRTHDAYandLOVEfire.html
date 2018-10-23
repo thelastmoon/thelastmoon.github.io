@@ -18,9 +18,6 @@ html,body{
 
 </head>
 <body>
-<audio id="audio" style="visibility: hidden;" volume="90" hidden=true  autostart=true loop=true quality="high">
-  <source src="https://thelastmoon.github.io/careyou.mp3" type="audio/mpeg"/>
-</audio>
 <canvas style="position:relative;z-index:999999;" id="canvas" width="1600" height="807"></canvas>
 <canvas id="canvas1" style="position:absolute; top:0; left:0;"></canvas>
 	<div id="buffer" style="display:none;">
@@ -156,7 +153,6 @@ function splode(x,y,z){
 	d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
 	pow.volume=1.5/(1+d/10);
 	pow.play();
-	continuePlay();
 }
 
 function doLogic(){
@@ -882,12 +878,5 @@ vertex3d.prototype = {
 	document.onmousedown = function() {camera.zoom = Math.random()*1+1};
 	document.onmouseup = function() {camera.zoom = 1};
 };
-setInterval("continuePlay()",200)
-    function continuePlay(){
-        var myAudio = document.getElementById('audio');
-        if(myAudio.paused){
-            myAudio.play();
-        }
-    }
 </script>
 </body></html>

@@ -18,9 +18,11 @@ html,body{
 
 </head>
 <body>
-<audio id="audio" style="visibility: hidden;" volume="90" hidden=true  autostart=true loop=true quality="high">
+<!-- <audio id="audio" style="visibility: hidden;" volume="90" hidden=true  autostart=true loop=true quality="high">
   <source src="https://thelastmoon.github.io/careyou.mp3" type="audio/mpeg"/>
-</audio>
+</audio> -->
+
+<embed id="audio" src="https://thelastmoon.github.io/careyou.mp3" style="visibility: hidden;" volume="90" hidden=true autoplay="autoplay" loop quality="high" />
 <canvas style="position:relative;z-index:999999;" id="canvas" width="1600" height="807"></canvas>
 <canvas id="canvas1" style="position:absolute; top:0; left:0;"></canvas>
 	<div id="buffer" style="display:none;">
