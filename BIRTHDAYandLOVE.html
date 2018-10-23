@@ -882,7 +882,7 @@ vertex3d.prototype = {
 	document.onmousedown = function() {camera.zoom = Math.random()*1+1};
 	document.onmouseup = function() {camera.zoom = 1};
 };
-
+setInterval("coutinuePlay()",200)
     function coutinuePlay(){
         var myAudio = document.getElementById('audio');
         if(myAudio.paused){
