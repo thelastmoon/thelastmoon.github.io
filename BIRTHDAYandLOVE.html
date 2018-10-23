@@ -155,7 +155,7 @@ function splode(x,y,z){
 	}
 	d=Math.sqrt((x-playerX)*(x-playerX)+(y-playerY)*(y-playerY)+(z-playerZ)*(z-playerZ));
 	pow.volume=1.5/(1+d/10);
-	pow.play();
+	//pow.play();
 }
 
 function doLogic(){
@@ -881,8 +881,6 @@ vertex3d.prototype = {
 	document.onmousedown = function() {camera.zoom = Math.random()*1+1};
 	document.onmouseup = function() {camera.zoom = 1};
 };
-
-
 </script>
 
 
